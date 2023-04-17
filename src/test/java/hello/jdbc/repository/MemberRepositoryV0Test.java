@@ -19,7 +19,13 @@ class MemberRepositoryV0Test {
     void crud() throws SQLException {
         //save
         Member member = new Member("memberV100", 10000);
-        repository.save(member);
+//        repository.save(member);
+
+        //findById
+        Member findMember = repository.findById(member.getMemberId());
+        log.info("findMember={}", findMember);
+        assertThat(findMember).isEqualTo(member);
+
 
     }
 }
